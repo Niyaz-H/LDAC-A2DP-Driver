@@ -1,0 +1,46 @@
+; LDAC A2DP Codec Driver for Windows
+; Copyright (c) 2024 LDAC Driver Team
+; Licensed under MIT License
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=AudioEndpoint
+ClassGuid={c166523c-fe0c-4a94-a586-f1a80cfbbf3e}
+Provider=%ProviderName%
+DriverVer=06/20/2024,1.0.0.0
+CatalogFile=LDACDriver.cat
+
+[SourceDisksNames]
+1 = "LDAC Driver Installation Disk",,,
+
+[SourceDisksFiles]
+LDACDriver.sys = 1
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[Manufacturer]
+%ManufacturerName%=Standard,NTamd64
+
+[Standard.NTamd64]
+%LDACDeviceDesc%=LDAC_Install,USB\VID_04E8&PID_A0A0
+
+[LDAC_Install]
+CopyFiles=LDAC_DriverFiles
+AddReg=LDAC_AddReg
+
+[LDAC_DriverFiles]
+LDACDriver.sys,,,0x00004000
+
+[LDAC_AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,LDACDriver.sys
+HKR,"Parameters","LDACEnabled",0x00010001,1
+HKR,"Parameters","PreferredBitrate",0x00010001,990000
+HKR,"Parameters","ForceLDAC",0x00010001,1
+
+[Strings]
+ProviderName="LDAC Driver Team"
+ManufacturerName="LDAC Driver Team"
+LDACDeviceDesc="LDAC A2DP Codec Support"
+ServiceName="LDACDriver"

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <AssemblyTitle>LDAC Configuration App</AssemblyTitle>
+    <AssemblyDescription>LDAC A2DP codec configuration for Soundcore devices</AssemblyDescription>
+    <AssemblyCompany>LDAC Driver Team</AssemblyCompany>
+    <AssemblyProduct>LDAC Configuration App</AssemblyProduct>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyFileVersion>1.0.0.0</AssemblyFileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Management" Version="7.0.0" />
+  </ItemGroup>
+
+</Project>
